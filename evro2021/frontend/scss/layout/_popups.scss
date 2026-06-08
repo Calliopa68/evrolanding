@@ -1,0 +1,106 @@
+.popups {
+	&__popup {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		overflow-y: auto;
+		z-index: 3;
+		transition: .3s ease-in-out;
+		padding: .7em;
+        background: rgba(0,0,0, .5);
+		&:not(.active) {
+			opacity: 0;
+			visibility: hidden;
+			pointer-events: none;
+        }
+	}
+	&__close {
+		cursor: pointer;
+		&--btn {
+			position: absolute;
+			top: 1.5em;
+			right: 1.5em;
+			width: 1.4em;
+			height: 1.4em;
+			background: url(../img/close.png) center/80% no-repeat;
+		}
+		&--over {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+		}
+	}
+    
+    &__content{
+        position: relative;
+        width: 40em;
+        background: rgba(13,149,179,1);
+        padding: 0em 2em;
+        height: 21em;
+        border-radius: 1.2em;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        z-index: 1;
+        &--error{
+            height: 17em;
+        }
+        &--rules{
+            height: 35em;
+			.modal-scrollbar{
+				max-height: 25em;
+			}
+		}
+    }
+    
+    &__heading{
+        position: relative;
+        font-family: Montserrat;
+        font-weight: 700;
+        font-size: 1.8em;
+        color: #fdfdfd;
+        line-height: 1.3;
+        margin-top:1.75em;
+        text-align: center;
+        margin-bottom: 1em;
+    }
+    &__rules_block{
+        color: #fdfdfd;
+        font-size: 1.2em;
+        font-family: "Arial";
+        line-height: 1.5;
+        p{
+            margin-bottom: 1em;
+        }
+    }
+}
+@media (max-width:500px){
+    .popups{
+        &__popup{
+            &:before{
+                background-size: 120%;
+            }
+        }
+        &__heading{
+            font-size: 4.8em;
+        }
+        &__rules_block{
+            font-size: 2.8em;
+        }
+    }
+    .popups__content--rules {
+        width: 90rem;
+        height: 100em;
+        }
+    .popups__content--rules .modal-scrollbar {
+        max-height: 75em;
+    }
+}
